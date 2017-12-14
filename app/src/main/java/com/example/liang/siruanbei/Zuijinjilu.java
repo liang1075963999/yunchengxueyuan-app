@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.liang.siruanbei.activity.item;
 import com.example.liang.siruanbei.bean.lishibean;
@@ -50,10 +51,14 @@ public class Zuijinjilu extends AppCompatActivity{
                 lishicaozuo=new lishicaozuo(Zuijinjilu.this);
                 arrayList= (ArrayList<lishibean>) lishicaozuo.xianshi();
                 for(int i=arrayList.size()-1;i>-1;i--){
-                    list.add(arrayList.get(i).getZhengwen().substring(0,20)+"...");
-                    list2.add(arrayList.get(i).getZhengwen());
-                    list1.add(arrayList.get(i).getTupian());
-                    list3.add(arrayList.get(i).getDate());
+                    try{
+                        list.add(arrayList.get(i).getZhengwen().substring(0,20)+"...");
+                        list2.add(arrayList.get(i).getZhengwen());
+                        list1.add(arrayList.get(i).getTupian());
+                        list3.add(arrayList.get(i).getDate());
+                    }catch (Exception e){
+                        Toast.makeText(Zuijinjilu.this,"暂无更多浏览记录",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 runOnUiThread(new Runnable() {
                     @Override
