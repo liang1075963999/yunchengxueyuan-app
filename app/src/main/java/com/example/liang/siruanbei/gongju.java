@@ -1,6 +1,8 @@
 package com.example.liang.siruanbei;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.liang.siruanbei.bean.dongtaineirong;
 import com.example.liang.siruanbei.bean.jiaoxueneirong;
@@ -29,23 +31,29 @@ public class gongju{
     private static List<dongtaineirong> dongtaineirongList;
     private static List<jiaoxueneirong> jiaoxueneirongList;
     private static BmobQuery a;
-    public static List<news> getList() {
+
+    public static List<news> getList(final Context context) {
         a = new BmobQuery("news");
         a.findObjectsByTable(new QueryListener<JSONArray>() {
             @Override
             public void done(JSONArray jsonArray, BmobException e) {
                 resultList = new ArrayList<>();
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    try {
-                        news n = new news();
-                        n.setDate(jsonArray.getJSONObject(i).getString("date"));
-                        n.setHref(jsonArray.getJSONObject(i).getString("href"));
-                        n.setTitle(jsonArray.getJSONObject(i).getString("title"));
-                        Log.i("xinxi", n.getTitle() + "," + n.getDate() + "," + n.getHref());
-                        resultList.add(n);
-                    } catch (JSONException e1) {
-                        e1.printStackTrace();
+                try{
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        try {
+                            news n = new news();
+                            n.setDate(jsonArray.getJSONObject(i).getString("date"));
+                            n.setHref(jsonArray.getJSONObject(i).getString("href"));
+                            n.setTitle(jsonArray.getJSONObject(i).getString("title"));
+                            Log.i("xinxi", n.getTitle() + "," + n.getDate() + "," + n.getHref());
+                            resultList.add(n);
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
                     }
+
+                }catch (Exception ee){
+                    Toast.makeText(context,"Bmob服务器开小差了",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -57,23 +65,28 @@ public class gongju{
         }
         return resultList;
     }
-    public static List<shipin> getshipinList() {
+    public static List<shipin> getshipinList(final Context context) {
         a = new BmobQuery("shipin");
         a.findObjectsByTable(new QueryListener<JSONArray>() {
             @Override
             public void done(JSONArray jsonArray, BmobException e) {
                 shipinList = new ArrayList<>();
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    try {
-                        shipin n = new shipin();
-                        n.setDate(jsonArray.getJSONObject(i).getString("date"));
-                        n.setHref(jsonArray.getJSONObject(i).getString("href"));
-                        n.setTitle(jsonArray.getJSONObject(i).getString("title"));
-                        Log.i("xinxiq", n.getTitle() + "," + n.getDate() + "," + n.getHref());
-                        shipinList.add(n);
-                    } catch (JSONException e1) {
-                        e1.printStackTrace();
+                try{
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        try {
+                            shipin n = new shipin();
+                            n.setDate(jsonArray.getJSONObject(i).getString("date"));
+                            n.setHref(jsonArray.getJSONObject(i).getString("href"));
+                            n.setTitle(jsonArray.getJSONObject(i).getString("title"));
+                            Log.i("xinxiq", n.getTitle() + "," + n.getDate() + "," + n.getHref());
+                            shipinList.add(n);
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
                     }
+
+                }catch (Exception ee){
+                    Toast.makeText(context,"Bmob服务器开小差了",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -86,23 +99,28 @@ public class gongju{
 
         return shipinList;
     }
-    public static List<tongzhi> gettongzhiList() {
+    public static List<tongzhi> gettongzhiList(final Context context){
         a = new BmobQuery("tongzhi");
         a.findObjectsByTable(new QueryListener<JSONArray>() {
             @Override
             public void done(JSONArray jsonArray, BmobException e) {
                 tongzhiList = new ArrayList<>();
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    try {
-                        tongzhi n = new tongzhi();
-                        n.setDate(jsonArray.getJSONObject(i).getString("date"));
-                        n.setHref(jsonArray.getJSONObject(i).getString("href"));
-                        n.setTitle(jsonArray.getJSONObject(i).getString("title"));
-                        Log.i("xinxiq", n.getTitle() + "," + n.getDate() + "," + n.getHref());
-                        tongzhiList.add(n);
-                    } catch (JSONException e1) {
-                        e1.printStackTrace();
+                try{
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        try {
+                            tongzhi n = new tongzhi();
+                            n.setDate(jsonArray.getJSONObject(i).getString("date"));
+                            n.setHref(jsonArray.getJSONObject(i).getString("href"));
+                            n.setTitle(jsonArray.getJSONObject(i).getString("title"));
+                            Log.i("xinxiq", n.getTitle() + "," + n.getDate() + "," + n.getHref());
+                            tongzhiList.add(n);
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
                     }
+
+                }catch (Exception ee){
+                    Toast.makeText(context,"Bmob服务器开小差了",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -115,22 +133,27 @@ public class gongju{
 
         return tongzhiList;
     }
-    public static List<xibuneirong> getxibuList() {
+    public static List<xibuneirong> getxibuList(final Context context) {
         a = new BmobQuery("xibuneirong");
         a.findObjectsByTable(new QueryListener<JSONArray>() {
             @Override
             public void done(JSONArray jsonArray, BmobException e) {
                 xibuList = new ArrayList<>();
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    try {
-                        xibuneirong n = new xibuneirong();
-                        n.setTupian(jsonArray.getJSONObject(i).getString("tupian"));
-                        n.setZhengwen(jsonArray.getJSONObject(i).getString("zhengwen"));
-                        Log.i("ppp", n.getTupian() + "," + n.getZhengwen() );
-                        xibuList.add(n);
-                    } catch (JSONException e1) {
-                        e1.printStackTrace();
+                try{
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        try {
+                            xibuneirong n = new xibuneirong();
+                            n.setTupian(jsonArray.getJSONObject(i).getString("tupian"));
+                            n.setZhengwen(jsonArray.getJSONObject(i).getString("zhengwen"));
+                            Log.i("ppp", n.getTupian() + "," + n.getZhengwen() );
+                            xibuList.add(n);
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
                     }
+
+                }catch (Exception ee){
+                    Toast.makeText(context,"Bmob服务器开小差了",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -143,22 +166,27 @@ public class gongju{
 
         return xibuList;
     }
-    public static List<newsneirong> getNewsneirongList() {
+    public static List<newsneirong> getNewsneirongList(final Context context) {
         a = new BmobQuery("newsneirong");
         a.findObjectsByTable(new QueryListener<JSONArray>() {
             @Override
             public void done(JSONArray jsonArray, BmobException e) {
                 newsneirongList = new ArrayList<>();
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    try {
-                        newsneirong n = new newsneirong();
-                        n.setTupian(jsonArray.getJSONObject(i).getString("tupian"));
-                        n.setZhengwen(jsonArray.getJSONObject(i).getString("zhengwen"));
-                        //Log.i("aq", n.getTupian() + "," + n.getZhengwen() );
-                        newsneirongList.add(n);
-                    } catch (JSONException e1) {
-                        e1.printStackTrace();
+                try{
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        try {
+                            newsneirong n = new newsneirong();
+                            n.setTupian(jsonArray.getJSONObject(i).getString("tupian"));
+                            n.setZhengwen(jsonArray.getJSONObject(i).getString("zhengwen"));
+                            //Log.i("aq", n.getTupian() + "," + n.getZhengwen() );
+                            newsneirongList.add(n);
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
                     }
+
+                }catch (Exception ee){
+                    Toast.makeText(context,"Bmob服务器开小差了",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -171,22 +199,27 @@ public class gongju{
 
         return newsneirongList;
     }
-    public static List<dongtaineirong> getdongtaineirongList() {
+    public static List<dongtaineirong> getdongtaineirongList(final Context context) {
         a = new BmobQuery("dongtaineirong");
         a.findObjectsByTable(new QueryListener<JSONArray>() {
             @Override
             public void done(JSONArray jsonArray, BmobException e) {
                 dongtaineirongList = new ArrayList<>();
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    try {
-                        dongtaineirong n = new dongtaineirong();
-                        n.setTupian(jsonArray.getJSONObject(i).getString("tupian"));
-                        n.setZhengwen(jsonArray.getJSONObject(i).getString("zhengwen"));
-                        Log.i("aq", n.getTupian() + "," + n.getZhengwen() );
-                        dongtaineirongList.add(n);
-                    } catch (JSONException e1) {
-                        e1.printStackTrace();
+                try{
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        try {
+                            dongtaineirong n = new dongtaineirong();
+                            n.setTupian(jsonArray.getJSONObject(i).getString("tupian"));
+                            n.setZhengwen(jsonArray.getJSONObject(i).getString("zhengwen"));
+                            Log.i("aq", n.getTupian() + "," + n.getZhengwen() );
+                            dongtaineirongList.add(n);
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
                     }
+
+                }catch (Exception ee){
+                    Toast.makeText(context,"Bmob服务器开小差了",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -199,22 +232,27 @@ public class gongju{
 
         return dongtaineirongList;
     }
-    public static List<jiaoxueneirong> getjiaoxueneirongList() {
+    public static List<jiaoxueneirong> getjiaoxueneirongList(final Context context) {
         a = new BmobQuery("jiaoxueneirong");
         a.findObjectsByTable(new QueryListener<JSONArray>() {
             @Override
             public void done(JSONArray jsonArray, BmobException e) {
                 jiaoxueneirongList = new ArrayList<>();
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    try {
-                        jiaoxueneirong n = new jiaoxueneirong();
-                        n.setTupian(jsonArray.getJSONObject(i).getString("tupian"));
-                        n.setZhengwen(jsonArray.getJSONObject(i).getString("zhengwen"));
-                        Log.i("aq", n.getTupian() + "," + n.getZhengwen() );
-                        jiaoxueneirongList.add(n);
-                    } catch (JSONException e1) {
-                        e1.printStackTrace();
+                try{
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        try {
+                            jiaoxueneirong n = new jiaoxueneirong();
+                            n.setTupian(jsonArray.getJSONObject(i).getString("tupian"));
+                            n.setZhengwen(jsonArray.getJSONObject(i).getString("zhengwen"));
+                            Log.i("aq", n.getTupian() + "," + n.getZhengwen() );
+                            jiaoxueneirongList.add(n);
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
                     }
+
+                }catch (Exception ee){
+                    Toast.makeText(context,"Bmob服务器开小差了",Toast.LENGTH_SHORT).show();
                 }
             }
         });

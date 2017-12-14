@@ -80,7 +80,7 @@ public class ListViewFragment extends Fragment {
 
     private void initView() {
         listView = (ListView)getView().findViewById(R.id.list_view);
-        adapter = new adapter(getActivity(), R.layout.buju0, gongju.gettongzhiList());
+        adapter = new adapter(getActivity(), R.layout.buju0, gongju.gettongzhiList(getContext()));
         listView.setAdapter(adapter);
         swipeRefreshLayout = (SwipeRefreshLayout) getView().findViewById(R.id.swipe);
         swipeRefreshLayout.setColorSchemeResources(R.color.material_blue);
@@ -91,7 +91,7 @@ public class ListViewFragment extends Fragment {
                 swipeRefreshLayout.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        adapter = new adapter(getActivity(), R.layout.buju0, gongju.gettongzhiList());
+                        adapter = new adapter(getActivity(), R.layout.buju0, gongju.gettongzhiList(getContext()));
                         listView.setAdapter(adapter);
                         swipeRefreshLayout.setRefreshing(false);
                         Toast.makeText(getActivity(), "只有这些数据了", Toast.LENGTH_SHORT).show();
@@ -107,7 +107,7 @@ public class ListViewFragment extends Fragment {
                 /*arrayList.add(gongju.getxibuList().get(position).getTupian());
                 arrayList.add(gongju.getxibuList().get(position).getZhengwen());*/
 //                intent.putStringArrayListExtra("xinxi",arrayList);
-                intent.putExtra("wangzhi",gongju.gettongzhiList().get(position).getHref());
+                intent.putExtra("wangzhi",gongju.gettongzhiList(getContext()).get(position).getHref());
                 startActivity(intent);
             }
         });

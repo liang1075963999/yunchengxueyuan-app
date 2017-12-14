@@ -75,7 +75,7 @@ public class Utils {
 	 * @param tempUri
 	 * @return
 	 */
-	public static Bitmap toRoundBitmap(Bitmap bitmap, Uri tempUri) {
+	public static Bitmap toRoundBitmap(Bitmap bitmap, Uri tempUri) {//如Utils.toRoundBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.heart_on),null);将resource转为bitmap
 		int width = bitmap.getWidth();
 		int height = bitmap.getHeight();
 		float roundPx;

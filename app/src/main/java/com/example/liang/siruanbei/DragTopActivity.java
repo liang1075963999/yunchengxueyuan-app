@@ -105,7 +105,7 @@ public class DragTopActivity extends ActionBarActivity {
         bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom);
         frameLayout = (FrameLayout) findViewById(R.id.frame);
         bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_home_blue_100_48dp, "主页")).setActiveColor(R.color.material_blue);
-        bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_account_balance_blue_100_48dp, "空教室")).setActiveColor(R.color.material_blue);
+        bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_account_balance_blue_100_48dp, "日常")).setActiveColor(R.color.material_blue);
         bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_content_paste_blue_100_48dp, "课表")).setActiveColor(R.color.material_blue);
         bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_face_blue_100_48dp, "个人中心")).setActiveColor(R.color.material_blue);
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
@@ -130,7 +130,7 @@ public class DragTopActivity extends ActionBarActivity {
                     fragmentTransaction.commit();
 //                    replacefragment(new zhuyeFragment());
                 } else if (position == 1) {
-                    toolbar.setTitle("空教室");
+                    toolbar.setTitle("日常");
                     setSupportActionBar(toolbar);
                     fragmentTransaction = fragmentManager.beginTransaction();
                     hideFragments(fragmentTransaction);

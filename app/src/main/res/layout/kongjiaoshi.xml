@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/material_blue"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="#ffffff"
+                  android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/material_blue"
+            android:titleTextColor="@color/white"/>
+
+        <com.example.liang.siruanbei.shimmer.ShimmerTextView
+            android:id="@+id/shi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="空教室查询"
+            android:textColor="@color/material_blue"
+            android:textSize="50dp"/>
+
+        <ScrollView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <gr.escsoft.michaelprimez.searchablespinner.SearchableSpinner
+                    android:id="@+id/SearchableSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_horizontal"
+                    app:BoarderColor="@color/colorPrimary"
+                    app:BordersSize="1dp"
+                    app:DoneSearchTintColor="@android:color/white"
+                    app:RevealEmptyText="输入星期"
+                    app:RevealViewBackgroundColor="@android:color/holo_blue_light"
+                    app:SearchHintText=" "
+                    app:SearchViewBackgroundColor="@android:color/holo_blue_light"
+                    app:ShowBorders="true"
+                    app:SpinnerExpandHeight="250dp"
+                    app:StartSearchTintColor="@android:color/white"/>
+
+                <gr.escsoft.michaelprimez.searchablespinner.SearchableSpinner
+                    android:id="@+id/SearchableSpinner2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_horizontal"
+                    app:DividerHeight="0.5dp"
+                    app:DoneSearchTintColor="@android:color/holo_purple"
+                    app:ItemsDivider="@color/gray_400"
+                    app:RevealEmptyText="输入地点"
+                    app:RevealViewBackgroundColor="@android:color/holo_purple"
+                    app:SearchHintText=" "
+                    app:SearchViewBackgroundColor="@android:color/secondary_text_dark"
+                    app:ShowBorders="true"
+                    app:SpinnerExpandHeight="300dp"
+                    app:StartSearchTintColor="@android:color/white"/>
+
+                <gr.escsoft.michaelprimez.searchablespinner.SearchableSpinner
+                    android:id="@+id/SearchableSpinner1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_horizontal"
+                    app:BoarderColor="@android:color/holo_blue_light"
+                    app:BordersSize="1dp"
+                    app:DoneSearchTintColor="@android:color/white"
+                    app:RevealEmptyText="输入课时"
+                    app:RevealViewBackgroundColor="@android:color/holo_blue_light"
+                    app:SearchHintText=" "
+                    app:SearchViewBackgroundColor="@android:color/holo_blue_light"
+                    app:ShowBorders="true"
+                    app:SpinnerExpandHeight="0dp"
+                    app:StartSearchTintColor="@android:color/white"/>
+
+                <Button
+                    android:id="@+id/dianji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/yuanxing"
+                    android:text="点击"
+                    android:transitionName="dianji"
+                    />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

@@ -21,9 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".CeShi"/>
+        <activity android:name=".activity.RiJiBen"/>
+        <activity android:name=".activity.KongJiaoShi"/>
         <activity android:name=".qidongye.GuideActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".DragTopActivity"/>
+        <activity android:name=".DragTopActivity">
+        </activity>
+        <activity android:name=".activity.rijiben.AddDiaryActivity"/>
+        <activity android:name=".activity.rijiben.UpdateDiaryActivity"/>
+        <activity android:name=".activity.rijiben.TestActivity"/>
         <activity android:name=".Zuijinjilu"/>
         <activity android:name=".activity.kebiaobianji"/>
         <activity android:name=".Gerenshoucang"/>

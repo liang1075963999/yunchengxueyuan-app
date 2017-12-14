@@ -14,8 +14,19 @@
     <color name="shadow_bg">#66000000</color>
     <color name="transparent_background">#00000000</color>
     <color name="white">#ffffffff</color>
-
+    <color name="yellow">#ff7300</color>
+    <color name="time_line_bg">#b3b3b3</color>
+    <color name="head_line_bg">#cccccc</color>
     <color name="item_divider">#EFEFEF</color>
+
+
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="half_black">#808080</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="pink">#e91e63</color>
+    <color name="pink_pressed">#ec407a</color>
+    <color name="blue_semi_transparent">#805677fc</color>
+    <color name="blue_semi_transparent_pressed">#80738ffe</color>
 
     <color name="normal_cell_bg">#FEFFFE</color>
     <color name="bg_line">#E7E7E7</color>

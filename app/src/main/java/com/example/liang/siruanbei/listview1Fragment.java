@@ -47,7 +47,7 @@ public class listview1Fragment extends Fragment {
 
     private void initView() {
         listView = (ListView) getView().findViewById(R.id.list_view);
-        adapter = new shipei(getContext(),R.layout.buju1, gongju.getdongtaineirongList());
+        adapter = new shipei(getContext(),R.layout.buju1, gongju.getdongtaineirongList(getContext()));
         listView.setAdapter(adapter);
         swipeRefreshLayout = (SwipeRefreshLayout) getView().findViewById(R.id.swipe);
         swipeRefreshLayout.setColorSchemeResources(R.color.material_blue);
@@ -58,7 +58,7 @@ public class listview1Fragment extends Fragment {
                 swipeRefreshLayout.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        adapter = new shipei(getContext(),R.layout.buju1,gongju.getdongtaineirongList());
+                        adapter = new shipei(getContext(),R.layout.buju1,gongju.getdongtaineirongList(getContext()));
                         listView.setAdapter(adapter);
                         swipeRefreshLayout.setRefreshing(false);
                         Toast.makeText(getActivity(), "只有这些数据了", Toast.LENGTH_SHORT).show();
@@ -71,8 +71,8 @@ public class listview1Fragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 arrayList=new ArrayList<String>();
                 intent=new Intent(getActivity(), item.class);
-                arrayList.add(gongju.getdongtaineirongList().get(position).getTupian());
-                arrayList.add(gongju.getdongtaineirongList().get(position).getZhengwen());
+                arrayList.add(gongju.getdongtaineirongList(getContext()).get(position).getTupian());
+                arrayList.add(gongju.getdongtaineirongList(getContext()).get(position).getZhengwen());
                 intent.putStringArrayListExtra("xinxi",arrayList);
                 startActivity(intent);
             }

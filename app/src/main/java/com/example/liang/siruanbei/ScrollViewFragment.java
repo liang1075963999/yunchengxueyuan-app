@@ -69,7 +69,7 @@ public class ScrollViewFragment extends Fragment {
 
     private void initView() {
         listView = (ListView) getView().findViewById(R.id.list_view);
-        adapter = new adapter(getContext(), R.layout.buju2, gongju.getxibuList());
+        adapter = new adapter(getContext(), R.layout.buju2, gongju.getxibuList(getContext()));
         listView.setAdapter(adapter);
         swipeRefreshLayout = (SwipeRefreshLayout) getView().findViewById(R.id.swipe);
         swipeRefreshLayout.setColorSchemeResources(R.color.material_blue);
@@ -80,7 +80,7 @@ public class ScrollViewFragment extends Fragment {
                 swipeRefreshLayout.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        adapter = new adapter(getContext(), R.layout.buju2, gongju.getxibuList());
+                        adapter = new adapter(getContext(), R.layout.buju2, gongju.getxibuList(getContext()));
                         listView.setAdapter(adapter);
                         swipeRefreshLayout.setRefreshing(false);
                         Toast.makeText(getActivity(), "只有这些数据了", Toast.LENGTH_SHORT).show();
@@ -93,8 +93,8 @@ public class ScrollViewFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 arrayList=new ArrayList<String>();
                 intent=new Intent(getActivity(), item.class);
-                arrayList.add(gongju.getxibuList().get(position).getTupian());
-                arrayList.add(gongju.getxibuList().get(position).getZhengwen());
+                arrayList.add(gongju.getxibuList(getContext()).get(position).getTupian());
+                arrayList.add(gongju.getxibuList(getContext()).get(position).getZhengwen());
                 intent.putStringArrayListExtra("xinxi",arrayList);
                 startActivity(intent);
             }
